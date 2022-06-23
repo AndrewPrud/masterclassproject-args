@@ -149,6 +149,7 @@ export default function UpdateWaste(props) {
               label="Date Accepted"
               onChange={dateAcceptedChangeHandler}
               value={dateAccepted}
+              type="date"
             />
           </Grid>
           <Grid item xs={12}>
@@ -157,6 +158,7 @@ export default function UpdateWaste(props) {
               label="Date Returned"
               onChange={dateReturnedChangeHandler}
               value={dateReturned}
+              type="date"
             />
           </Grid>
         </Grid>
