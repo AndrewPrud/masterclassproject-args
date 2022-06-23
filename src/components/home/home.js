@@ -26,25 +26,44 @@ export default function Home() {
     navigate(ROUTES.STUDENTS);
   };
 
+  const onWasteListClick = () => {
+    navigate(ROUTES.WASTE);
+  };
+
   return (
-    
-<Grid container spacing={2}>
-  <Grid item xs={12}>
-    <Grid item align="center">Your meeting has been launched.</Grid>
-    <Grid item align="center">Don&apos;t see your Zoom meeting?</Grid>
-  </Grid>
-  <Grid item xs={12}>
-    <Grid item align="center">By clicking &ldquo;Launch Meeting&rdquo;, you agree to our Terms of Service and Privacy Statement</Grid>
-  </Grid>
-  <Grid item xs={12}>
-    <Grid item align="center"><Button variant="contianed">Launch Meeting</Button></Grid>
-  </Grid>
-  <Grid item xs={12}>
-    <Grid item align="center"><hr /></Grid>
-  </Grid>
-  <Grid item xs={8}>
-    <Grid item>xs=8</Grid>
-  </Grid>
-</Grid>
+    <Container>
+      <Button variant="contained" onClick={onWasteListClick}>
+        Waste
+      </Button>
+      <Grid container spacing={2}>
+        <Grid item xs={12}>
+          <Grid item align="center">
+            Your meeting has been launched.
+          </Grid>
+          <Grid item align="center">
+            Don&apos;t see your Zoom meeting?
+          </Grid>
+        </Grid>
+        <Grid item xs={12}>
+          <Grid item align="center">
+            By clicking &ldquo;Launch Meeting&rdquo;, you agree to our Terms of
+            Service and Privacy Statement
+          </Grid>
+        </Grid>
+        <Grid item xs={12}>
+          <Grid item align="center">
+            <Button variant="contianed">Launch Meeting</Button>
+          </Grid>
+        </Grid>
+        <Grid item xs={12}>
+          <Grid item align="center">
+            <hr />
+          </Grid>
+        </Grid>
+        <Grid item xs={8}>
+          <Grid item>xs=8</Grid>
+        </Grid>
+      </Grid>
+    </Container>
   );
 }

@@ -37,7 +37,7 @@ function Waste() {
   const refreshItems = async () => {
     const bruh = await getWasteList();
     setWaste(bruh);
-    setActiveWaste(bruh.filter((wasteItem) => wasteItem.active === true));
+    setActiveWaste(bruh.filter((wasteItem) => true));
   };
 
   const onAddWasteFormSubmit = async (
@@ -57,8 +57,8 @@ function Waste() {
       city: enteredCity,
       state: enteredState,
       postalCode: enteredPostalCode,
-      dateAccepted: enteredDateAccepted,
-      dateReturned: enteredDateReturned,
+      dateAccepted: new Date(enteredDateAccepted),
+      dateReturned: new Date(enteredDateReturned),
       active: true,
     };
 
@@ -124,6 +124,7 @@ function Waste() {
           handleClose={updateModalChange}
         />
       )}
+
       <Box
         sx={{
           display: 'flex',
@@ -154,6 +155,7 @@ function Waste() {
           onSubmitChange={onAddWasteFormSubmit}
         />
       </Box>
+
       <Box
         sx={{
           display: 'flex',
@@ -162,7 +164,7 @@ function Waste() {
         }}
       >
         <WasteList
-          Waste={activeWaste}
+          waste={activeWaste}
           archiveWasteHandler={archiveWasteHandler}
           updateWasteHandler={updateModalChange}
         />
