@@ -63,7 +63,6 @@ function Waste() {
     };
 
     await addWaste(newWaste);
-
     refreshItems();
     setName('');
     setOwner('');
@@ -152,7 +151,7 @@ function Waste() {
           onPostalCodeChange={setPostalCode}
           onDateAcceptedChange={setDateAccepted}
           onDateReturnedChange={setDateReturned}
-          onSubmitChange={onAddWasteFormSubmit}
+          onSubmit={onAddWasteFormSubmit}
         />
       </Box>
 
