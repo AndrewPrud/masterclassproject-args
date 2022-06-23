@@ -74,6 +74,7 @@ function AddWaste(props) {
             fullWidth
             label="Price"
             value={price}
+            type="number"
             onChange={(event) => onPriceChange(event.target.value)}
           />
         </Grid>
