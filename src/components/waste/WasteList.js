@@ -4,8 +4,8 @@ import Box from '@mui/material/Box';
 import PropTypes from 'prop-types';
 import Typography from '@mui/material/Typography';
 
-export default function WasteList(props) {
-  const { wastes, archiveWasteHandler, updateWasteHandler } = props;
+function WasteList(props){
+  const { waste, archiveWasteHandler, updateWasteHandler } = props;
 
   const archiveWaste = (event) => {
     archiveWasteHandler(event.target.value);
@@ -18,23 +18,17 @@ export default function WasteList(props) {
   return (
     <Box sx={{ mt: 3 }}>
       <Grid container spacing={2}>
-        {wastes.map((waste) => (
-          <Grid item xs={12} key={waste.id}>
-            <Typography component="p">{waste.id}</Typography>
-            <Typography component="p">
-              {waste.studentLastName}, {waste.studentFirstName}
-            </Typography>
-            <Typography component="p">
-              Date of Birth: {waste.studentDateOfBirth.substring(0, 10)}
-            </Typography>
-            <Typography component="p">Email: {waste.studentEmail}</Typography>
-            <Typography component="p">
-              Phone Number: {waste.studentCellPhone}
-            </Typography>
-            <Button value={waste.id} onClick={archiveWaste}>
+        {waste.map((item) => (
+          <Grid item xs={12} key={item.id}>
+            <Typography component="p">{item.id}</Typography>
+            <Typography component="p">{item.name}</Typography>
+            <Typography component="p">Owner: {item.owner}</Typography>
+            <Typography component="p">Price: {item.price}</Typography>
+            <Typography component="p">City: {item.city}</Typography>
+            <Button value={item.id} onClick={archiveWaste}>
               Delete
             </Button>
-            <Button value={waste.id} onClick={updateWaste}>
+            <Button value={item.id} onClick={updateWaste}>
               Update
             </Button>
           </Grid>
@@ -44,8 +38,9 @@ export default function WasteList(props) {
   );
 }
 
+export default WasteList;
 WasteList.propTypes = {
-  wastes: PropTypes.array.isRequired,
+  waste: PropTypes.array.isRequired,
   archiveWasteHandler: PropTypes.func.isRequired,
   updateWasteHandler: PropTypes.func.isRequired,
 };
