@@ -1,4 +1,11 @@
-import React, { useState } from 'react';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import { useState, useEffect } from 'react';
+import AddWaste from './waste-forms/AddWaste';
+import UpdateWaste from './waste-forms/UpdateWaste';
+import WasteList from './WasteList';
+import { getWasteList, addWaste, updateWaste } from '../../services/services';
 
 function Waste() {
   const [name, setName] = useState('');
