@@ -4,21 +4,18 @@ import Box from '@mui/material/Box';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import Typography from '@mui/material/Typography';
-<<<<<<< HEAD
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-=======
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
->>>>>>> dev
 
 function WasteList(props) {
   const { waste, archiveWasteHandler, updateWasteHandler } = props;
   const [drop, setDrop] = useState('');
-  let dropValue;
+
   const archiveWaste = (event) => {
     archiveWasteHandler(event.target.value);
   };
@@ -30,6 +27,13 @@ function WasteList(props) {
   const ownerAscending = [...waste].sort((a, b) =>
     a.owner > b.owner ? 1 : -1
   );
+  const priceAscending = [...waste].sort((a, b) =>
+    a.price > b.price ? 1 : -1
+  );
+  const priceDescending = [...waste].sort((a, b) =>
+    a.price < b.price ? 1 : -1
+  );
+  const cityAscending = [...waste].sort((a, b) => (a.city > b.city ? 1 : -1));
   let sentArray = [...waste];
   const dropHandler = (event) => {
     setDrop(event.target.value);
@@ -39,8 +43,13 @@ function WasteList(props) {
     sentArray = [...strAscending];
   } else if (drop === 'Owner') {
     sentArray = [...ownerAscending];
+  } else if (drop === 'A_Price') {
+    sentArray = [...priceAscending];
+  } else if (drop === 'City') {
+    sentArray = [...cityAscending];
+  } else if (drop === 'D_Price') {
+    sentArray = [...priceDescending];
   }
-
   return (
     <Box sx={{ mt: 3 }}>
       <InputLabel id="demo-simple-select-label">Sort</InputLabel>
@@ -54,6 +63,9 @@ function WasteList(props) {
         <MenuItem value="Normal">Normal</MenuItem>
         <MenuItem value="Alphabetic">Alphabetic by Name</MenuItem>
         <MenuItem value="Owner">Alphabetic by Owner</MenuItem>
+        <MenuItem value="City">Alphabetic by City</MenuItem>
+        <MenuItem value="A_Price">Ascending Price</MenuItem>
+        <MenuItem value="D_Price">Descending Price</MenuItem>
       </Select>
       <Grid container spacing={2}>
         {sentArray.map((item) => (
@@ -81,7 +93,6 @@ function WasteList(props) {
                 <Typography component="p">
                   Postal code: {item.postalCode}
                 </Typography>
-
               </AccordionDetails>
             </Accordion>
             <Button value={item.id} onClick={archiveWaste}>
