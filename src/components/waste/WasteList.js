@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import PropTypes from 'prop-types';
 import Typography from '@mui/material/Typography';
 
-function WasteList(props){
+function WasteList(props) {
   const { waste, archiveWasteHandler, updateWasteHandler } = props;
 
   const archiveWaste = (event) => {
