@@ -4,9 +4,16 @@ import Box from '@mui/material/Box';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import Typography from '@mui/material/Typography';
+<<<<<<< HEAD
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
+=======
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+>>>>>>> dev
 
 function WasteList(props) {
   const { waste, archiveWasteHandler, updateWasteHandler } = props;
@@ -56,6 +63,27 @@ function WasteList(props) {
             <Typography component="p">Owner: {item.owner}</Typography>
             <Typography component="p">Price: {item.price}</Typography>
             <Typography component="p">City: {item.city}</Typography>
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+              >
+                <Typography>More Info</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography component="p">
+                  Date accepted: {item.dateAccepted}
+                </Typography>
+                <Typography component="p">
+                  Date Returned: {item.dateReturned}
+                </Typography>
+                <Typography component="p">
+                  Postal code: {item.postalCode}
+                </Typography>
+
+              </AccordionDetails>
+            </Accordion>
             <Button value={item.id} onClick={archiveWaste}>
               Delete
             </Button>
