@@ -12,6 +12,10 @@ import ROUTES from '../../constants/routes';
 export default function Home() {
   const navigate = useNavigate();
 
+  const onLoginListClick = () => {
+    navigate(ROUTES.LOGIN);
+  };
+
   const onRepositoryClick = () => {
     window.open(
       'https://github.com/joeyschroeder/code-the-way-project-starter'
@@ -35,6 +39,10 @@ export default function Home() {
       <Button variant="contained" onClick={onWasteListClick}>
         Waste
       </Button>
+      <Button variant="contained" onClick={onLoginListClick}>
+        Login
+      </Button>
+
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <Grid item align="center">
