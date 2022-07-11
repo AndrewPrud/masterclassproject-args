@@ -8,12 +8,23 @@ import {
   Checkbox,
   Grid,
   Typography,
+  Box,
+  createTheme,
 } from '@mui/material';
 
 function LoginForm(props) {
   const [enteredUsername, setUsername] = useState('');
   const [enteredPassword, setPassword] = useState('');
-
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#004cbb',
+      },
+      secondary: {
+        main: '#ff7c00',
+      },
+    },
+  });
   const userHandler = (event) => {
     event.preventDefault();
     const user = {
@@ -28,6 +39,19 @@ function LoginForm(props) {
   const submitDisabled = !enteredUsername || !enteredPassword;
   return (
     <Container>
+      <Box
+        sx={{
+          width: '100%',
+          height: 100,
+          backgroundColor: 'primary.main',
+          textAlign: 'center',
+          mb: 5,
+        }}
+      >
+        <Typography variant="h4" fontWeight="bold">
+          LOG IN
+        </Typography>{' '}
+      </Box>
       <Grid
         container
         spacing={2}
@@ -35,11 +59,6 @@ function LoginForm(props) {
         justifyContent="center"
         alignItems="center"
       >
-        <Grid item xs={6}>
-          <Typography variant="h4" fontWeight="bold">
-            LOG IN
-          </Typography>
-        </Grid>
         <Grid item xs={6}>
           <TextField
             label="Username"
