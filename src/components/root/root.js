@@ -7,9 +7,10 @@ import App from '../app/app';
 import Home from '../home/home';
 import Students from '../students/students';
 import Waste from '../waste/Waste';
+
 import SignUpSuccess from '../sign-up-success/sign-up-success';
-import Login from '../login/loginForm';
-import ErrorModelTest from '../login/errorModelTest';
+import LoginForm from '../login/loginForm';
+
 
 const theme = createTheme();
 
@@ -24,11 +25,8 @@ export default function Root() {
             <Route path={ROUTES.SIGN_UP} element={<SignUp />} />
             <Route path={ROUTES.STUDENTS} element={<Students />} />
             <Route path={ROUTES.WASTE} element={<Waste />} />
-            <Route path={ROUTES.LOGIN} element={<Login />} />
-            <Route
-              path={ROUTES.ERROR_MODEL_TEST}
-              element={<ErrorModelTest />}
-            />
+            <Route path={ROUTES.LOGIN} element={<LoginForm />} />
+
           </Route>
         </Routes>
       </BrowserRouter>

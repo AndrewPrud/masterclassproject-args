@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
 import Link from '@mui/material/Link';
 import { Grid } from '@mui/material';
+
 import ROUTES from '../../constants/routes';
 
 export default function Home() {
@@ -33,8 +34,8 @@ export default function Home() {
     navigate(ROUTES.WASTE);
   };
 
-  const onErrorModalTestClick = () => {
-    navigate(ROUTES.ERROR_MODEL_TEST);
+  const onLoginListClick = () => {
+    navigate(ROUTES.LOGIN);
   };
 
   return (
@@ -44,9 +45,6 @@ export default function Home() {
       </Button>
       <Button variant="contained" onClick={onLoginListClick}>
         Login
-      </Button>
-      <Button variant="contained" onClick={onErrorModalTestClick}>
-        Error Modal Test
       </Button>
       <Grid container spacing={2}>
         <Grid item xs={12}>
