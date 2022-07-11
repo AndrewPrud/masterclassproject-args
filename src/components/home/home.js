@@ -10,9 +10,6 @@ import { Grid } from '@mui/material';
 import ROUTES from '../../constants/routes';
 
 export default function Home() {
-  const onLoginListClick = () => {
-    navigate(ROUTES.LOGIN);
-  };
 
   const navigate = useNavigate();
 

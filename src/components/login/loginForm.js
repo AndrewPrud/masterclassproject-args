@@ -11,6 +11,7 @@ import {
   Box,
   createTheme,
 } from '@mui/material';
+import LoginButton from './LoginButton';
 
 function LoginForm(props) {
   const [enteredUsername, setUsername] = useState('');
@@ -36,7 +37,7 @@ function LoginForm(props) {
     setPassword('');
   };
 
-  const submitDisabled = !enteredUsername || !enteredPassword;
+  // const submitDisabled = !enteredUsername || !enteredPassword;
   return (
     <Container>
       <Box
@@ -79,13 +80,7 @@ function LoginForm(props) {
           </FormGroup>
         </Grid>
         <Grid item xs={6}>
-          <Button
-            disabled={submitDisabled}
-            variant="contained"
-            onClick={userHandler}
-          >
-            Submit
-          </Button>
+          <LoginButton username={enteredUsername} password={enteredPassword} />
         </Grid>
       </Grid>
     </Container>
