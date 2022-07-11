@@ -11,7 +11,7 @@ import {
   Box,
   createTheme,
 } from '@mui/material';
-import LoginButton from './LoginButton';
+import LoginButton from './loginButton';
 
 function LoginForm(props) {
   const [enteredUsername, setUsername] = useState('');

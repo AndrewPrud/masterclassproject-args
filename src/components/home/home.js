@@ -5,12 +5,11 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
 import Link from '@mui/material/Link';
-import { Grid } from '@mui/material';
 
+import { Grid } from '@mui/material';
 import ROUTES from '../../constants/routes';
 
 export default function Home() {
-
   const navigate = useNavigate();
 
   const onRepositoryClick = () => {

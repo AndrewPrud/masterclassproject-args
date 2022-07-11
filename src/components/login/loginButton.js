@@ -10,9 +10,9 @@ function LoginButton(props) {
     event.preventDefault();
   };
   return (
-      <Button variant="contained" onSubmit={submitHandler}>
-        Login
-      </Button>
+    <Button variant="contained" onClick={submitHandler}>
+      Login
+    </Button>
   );
 }
 
