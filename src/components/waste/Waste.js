@@ -6,7 +6,7 @@ import AddWaste from './waste-forms/AddWaste';
 import UpdateWaste from './waste-forms/UpdateWaste';
 import WasteList from './WasteList';
 import { getWasteList, addWaste, updateWaste } from '../../services/services';
-import './darkMode.css';
+// import './darkMode.css';
 
 function Waste() {
   const [wasteToUpdate, setWasteToUpdate] = useState('');
