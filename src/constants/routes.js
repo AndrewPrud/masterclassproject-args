@@ -4,7 +4,8 @@ const ROUTES = {
   STUDENTS: '/students',
   SIGN_UP_SUCCESS: '/sign-up-succes',
   WASTE: '/Waste',
-  LOGIN: '/buttonTest',
+  LOGIN: '/login',
+
 };
 
 export default ROUTES;
