@@ -5,8 +5,8 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
 import Link from '@mui/material/Link';
-
 import { Grid } from '@mui/material';
+
 import ROUTES from '../../constants/routes';
 
 export default function Home() {
@@ -30,10 +30,17 @@ export default function Home() {
     navigate(ROUTES.WASTE);
   };
 
+  const onLoginListClick = () => {
+    navigate(ROUTES.LOGIN);
+  };
+
   return (
     <Container>
       <Button variant="contained" onClick={onWasteListClick}>
         Waste
+      </Button>
+      <Button variant="contained" onClick={onLoginListClick}>
+        Login
       </Button>
       <Grid container spacing={2}>
         <Grid item xs={12}>
