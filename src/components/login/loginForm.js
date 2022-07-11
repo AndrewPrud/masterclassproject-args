@@ -7,7 +7,6 @@ import {
   FormControlLabel,
   Checkbox,
   Grid,
-  Paper,
 } from '@mui/material';
 
 function LoginForm(props) {
