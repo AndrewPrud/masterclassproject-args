@@ -33,6 +33,10 @@ export default function Home() {
     navigate(ROUTES.WASTE);
   };
 
+  const onErrorModalTestClick = () => {
+    navigate(ROUTES.ERROR_MODEL_TEST);
+  };
+
   return (
     <Container>
       <Button variant="contained" onClick={onWasteListClick}>
@@ -40,6 +44,9 @@ export default function Home() {
       </Button>
       <Button variant="contained" onClick={onLoginListClick}>
         Login
+      </Button>
+      <Button variant="contained" onClick={onErrorModalTestClick}>
+        Error Modal Test
       </Button>
       <Grid container spacing={2}>
         <Grid item xs={12}>
