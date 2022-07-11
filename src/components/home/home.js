@@ -30,10 +30,17 @@ export default function Home() {
     navigate(ROUTES.WASTE);
   };
 
+  const onLoginListClick = () => {
+    navigate(ROUTES.LOGIN);
+  };
+
   return (
     <Container>
       <Button variant="contained" onClick={onWasteListClick}>
         Waste
+      </Button>
+      <Button variant="contained" onClick={onLoginListClick}>
+        Login
       </Button>
       <Grid container spacing={2}>
         <Grid item xs={12}>
