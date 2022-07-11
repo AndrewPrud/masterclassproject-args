@@ -7,6 +7,7 @@ import {
   FormControlLabel,
   Checkbox,
   Grid,
+  Paper,
 } from '@mui/material';
 
 function LoginForm(props) {
@@ -32,6 +33,9 @@ function LoginForm(props) {
         justifyContent="center"
         alignItems="center"
       >
+        <Grid item xs={6}>
+          <h1>LOGIN</h1>
+        </Grid>
         <Grid item xs={6}>
           <TextField
             label="Username"
