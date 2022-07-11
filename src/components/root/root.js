@@ -11,6 +11,7 @@ import Waste from '../waste/Waste';
 import SignUpSuccess from '../sign-up-success/sign-up-success';
 import LoginForm from '../login/loginForm';
 
+
 const theme = createTheme();
 
 export default function Root() {
@@ -25,6 +26,7 @@ export default function Root() {
             <Route path={ROUTES.STUDENTS} element={<Students />} />
             <Route path={ROUTES.WASTE} element={<Waste />} />
             <Route path={ROUTES.LOGIN} element={<LoginForm />} />
+
           </Route>
         </Routes>
       </BrowserRouter>
