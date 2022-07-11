@@ -7,6 +7,7 @@ import {
   FormControlLabel,
   Checkbox,
   Grid,
+  Typography,
 } from '@mui/material';
 
 function LoginForm(props) {
@@ -23,6 +24,8 @@ function LoginForm(props) {
     setUsername('');
     setPassword('');
   };
+
+  const submitDisabled = !enteredUsername || !enteredPassword;
   return (
     <Container>
       <Grid
@@ -33,7 +36,9 @@ function LoginForm(props) {
         alignItems="center"
       >
         <Grid item xs={6}>
-          <h1>LOGIN</h1>
+          <Typography variant="h4" fontWeight="bold">
+            LOG IN
+          </Typography>
         </Grid>
         <Grid item xs={6}>
           <TextField
@@ -55,7 +60,13 @@ function LoginForm(props) {
           </FormGroup>
         </Grid>
         <Grid item xs={6}>
-          <Button onClick={userHandler}>Submit</Button>
+          <Button
+            disabled={submitDisabled}
+            variant="contained"
+            onClick={userHandler}
+          >
+            Submit
+          </Button>
         </Grid>
       </Grid>
     </Container>
