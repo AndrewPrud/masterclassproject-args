@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button } from '@mui/material';
+import Button from '@mui/material/Button';
+import './LoginButton.css';
 
 function loginButton(props) {
   const submitHandler = (event) => {
@@ -9,11 +10,9 @@ function loginButton(props) {
   };
 
   return (
-    <div>
-      <Button variant="contained" onSubmit={submitHandler}>
-        Login
-      </Button>
-    </div>
+    <button type="submit" className="button" onClick={submitHandler} >
+      Login
+    </button>
   );
 }
 
