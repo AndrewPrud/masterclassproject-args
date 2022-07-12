@@ -1,5 +1,5 @@
 import React from 'react';
-import loginButton from './loginButton';
+import loginButton from './LoginButton';
 
 function buttonTest() {
   return (
