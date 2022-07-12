@@ -2,6 +2,7 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import Button from '@mui/material/Button';
+import './LoginButton.css';
 
 function LoginButton(props) {
   const submitHandler = (event) => {
@@ -10,9 +11,9 @@ function LoginButton(props) {
     event.preventDefault();
   };
   return (
-    <Button variant="contained" onClick={submitHandler}>
+    <button type="submit" className="button" onClick={submitHandler} >
       Login
-    </Button>
+    </button>
   );
 }
 

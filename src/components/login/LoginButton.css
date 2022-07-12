@@ -1,0 +1,18 @@
+.button {
+    background-color: #ff7c00;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    font-family: 'Calibri';
+    font-weight: bold;
+    border-radius: 12px;
+    transition-duration: 0.4s;
+  }
+  .button:hover {
+    background-color: #ffba06;
+    cursor:pointer;
+  }
