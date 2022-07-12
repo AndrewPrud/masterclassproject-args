@@ -11,6 +11,7 @@ import {
   FormControl,
   OutlinedInput,
 } from '@mui/material';
+import LoginButton from './loginButton';
 
 function LoginForm(props) {
   const [enteredUsername, setUsername] = useState('');
@@ -106,10 +107,15 @@ function LoginForm(props) {
             </FormGroup>
           </Grid>
           <Grid item xs={6}>
-            <Button disabled={submitDisabled} onClick={userHandler}>
+            <LoginButton
+              disabled={submitDisabled}
+              onClick={userHandler}
+              username={enteredUsername}
+              password={enteredPassword}
+            >
               {' '}
               LOG IN{' '}
-            </Button>
+            </LoginButton>
           </Grid>
         </Grid>
       </Box>
