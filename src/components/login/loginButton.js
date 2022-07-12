@@ -1,18 +1,35 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '@mui/material/Button';
+import Modal from './errorModelTest';
 
 function LoginButton(props) {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   const submitHandler = (event) => {
-    console.log(props.username);
-    console.log(props.password);
     event.preventDefault();
+
+    if (props.username && props.password) {
+      console.log(props.username);
+      console.log(props.password);
+    } else {
+      handleOpen();
+    }
   };
   return (
-    <Button variant="contained" onClick={submitHandler}>
-      Login
-    </Button>
+    <div>
+      <Button variant="contained" onSubmit={submitHandler}>
+        Login
+      </Button>
+      <Modal
+        handleOpener={{ handleOpen }}
+        handleCloser={{ handleClose }}
+        isOpen={{ open }}
+      />
+    </div>
   );
 }
 
