@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useReducer, useState } from 'react';
 import {
   Button,
   Container,
@@ -60,50 +60,47 @@ function LoginForm(props) {
 
   const validUsers = [
     {
-      enteredUsername: 'asi',
-      enteredPassword: 'pass',
+      username: 'asi',
+      password: 'pass',
     },
     {
-      enteredUsername: 'bsi',
-      enteredPassword: 'password',
+      username: 'bsi',
+      password: 'password',
     },
   ];
+  const userData = validUsers.find(
+    (luser) => luser.username === enteredUsername
+  );
 
-  const validUsernames = validUsers.map((a) => a.enteredUsername);
-  const validPasswords = validUsers.map((a) => a.enteredPassword);
   const handleLogin = (event) => {
     event.preventDefault();
 
     setUsernameError(false);
     setPasswordError(false);
 
-    if (
-      (validUsernames.includes(enteredUsername) === false ||
-        validPasswords.includes(enteredPassword) === false) &&
-      enteredPassword !== '' &&
-      enteredUsername !== ''
-    ) {
-      userHandleOpen();
-    }
-    if (
-      ((validUsernames.includes(enteredUsername) === false ||
-        validPasswords.includes(enteredPassword) === false) &&
-        enteredPassword === '') ||
-      enteredUsername === ''
-    ) {
+    if (enteredPassword === '' || enteredUsername === '') {
       handleOpen();
-    }
+    } else {
+      try {
+        if (
+          userData.password !== enteredPassword ||
+          userData.username !== enteredUsername
+        ) {
+          userHandleOpen();
+        } else if (
+          userData.password === enteredPassword &&
+          userData.username === enteredUsername
+        ) {
+          user.username = enteredUsername;
+          user.password = enteredPassword;
 
-    if (
-      validUsernames.includes(enteredUsername) === true &&
-      validPasswords.includes(enteredPassword) === true
-    ) {
-      user.username = enteredUsername;
-      user.password = enteredPassword;
-
-      console.log(user);
-      setUsername('');
-      setPassword('');
+          console.log(user);
+          setUsername('');
+          setPassword('');
+        }
+      } catch (err) {
+        userHandleOpen();
+      }
     }
   };
 
