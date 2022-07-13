@@ -29,6 +29,7 @@ function ForgotPassword() {
   const emailHandler = (event) => {
     event.preventDefault();
     console.log(enteredEmail);
+    handleClose();
   };
 
   return (
