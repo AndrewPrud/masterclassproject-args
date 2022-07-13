@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import TextField from '@mui/material/TextField';
-import Backdrop from '@mui/material/Backdrop';
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
-import Fade from '@mui/material/Fade';
-import Typography from '@mui/material/Typography';
+import {
+  Stack,
+  Button,
+  ArrowForwardIosIcon,
+  TextField,
+  Backdrop,
+  Box,
+  Modal,
+  Fade,
+  Typography,
+} from '@mui/material';
 
 const style = {
   position: 'absolute',
@@ -21,7 +23,7 @@ const style = {
   p: 4,
 };
 
-export default function ErrorModelTest() {
+export default function ErrorModelTest(props) {
   // for inputs
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -84,7 +86,6 @@ export default function ErrorModelTest() {
             type="submit"
             variant="contained"
             color="primary"
-            endIcon={<ArrowForwardIosIcon fontSize="small" />}
           >
             Submit
           </Button>
