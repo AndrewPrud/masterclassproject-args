@@ -15,6 +15,7 @@ import {
   Fade,
   Backdrop,
 } from '@mui/material';
+import LoginButton from './loginButton';
 
 const style = {
   position: 'absolute',
@@ -106,92 +107,95 @@ function LoginForm(props) {
           boxShadow: 3,
         }}
       >
-        </Modal>
-          </Fade>
-            </Box>
-              </Typography>
-                All Input Are Not Filled.
-              <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-              </Typography>
-                Bruh...😂
-              >
-                component="h2"
-                variant="h6"
-                id="transition-modal-title"
-              <Typography
-            <Box sx={style}>
-          <Fade in={open}>
-        >
-          }}
-            timeout: 500,
-          BackdropProps={{
-          BackdropComponent={Backdrop}
-          closeAfterTransition
-          onClose={handleClose}
-          open={open}
-          aria-describedby="transition-modal-description"
-          aria-labelledby="transition-modal-title"
-        <Modal
         <form noValidate autoComplete="off" onSubmit={handleLogin}>
-          container
-          spacing={2}
-          direction="column"
-          justifyContent="center"
-          alignItems="center"
-        <Grid
-        >
-          <Grid item xs={6}>
-            <Typography variant="body1" fontWeight="bold" textAlign="left">
-              Username
-            </Typography>
-            <FormControl
-              sx={{ boxShadow: 2, bgcolor: 'common.white', mt: 1, mb: 2 }}
-            >
-              <OutlinedInput
-                value={enteredUsername}
-                onChange={(event) => setUsername(event.target.value)}
-              />
-            </FormControl>
+          <Modal
+            aria-labelledby="transition-modal-title"
+            aria-describedby="transition-modal-description"
+            open={open}
+            onClose={handleClose}
+            closeAfterTransition
+            BackdropComponent={Backdrop}
+            BackdropProps={{
+              timeout: 500,
+            }}
+          >
+            <Fade in={open}>
+              <Box sx={style}>
+                <Typography
+                  id="transition-modal-title"
+                  variant="h6"
+                  component="h2"
+                >
+                  Bruh...😂
+                </Typography>
+                <Typography id="transition-modal-description" sx={{ mt: 2 }}>
+                  All Input Are Not Filled.
+                </Typography>
+              </Box>
+            </Fade>
+          </Modal>
+          <Grid
+            container
+            spacing={2}
+            direction="column"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Grid item xs={6}>
+              <Typography variant="body1" fontWeight="bold" textAlign="left">
+                Username
+              </Typography>
+              <FormControl
+                sx={{ boxShadow: 2, bgcolor: 'common.white', mt: 1, mb: 2 }}
+              >
+                <OutlinedInput
+                  value={enteredUsername}
+                  onChange={(event) => setUsername(event.target.value)}
+                />
+              </FormControl>
+            </Grid>
+            <Grid item xs={6}>
+              <Typography variant="body1" fontWeight="bold" textAlign="left">
+                Password
+              </Typography>
+              <FormControl
+                sx={{ boxShadow: 2, bgcolor: 'common.white', mt: 1 }}
+              >
+                <OutlinedInput
+                  value={enteredPassword}
+                  onChange={(event) => setPassword(event.target.value)}
+                />
+              </FormControl>
+            </Grid>
+            <Grid item xs={6}>
+              <FormGroup>
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label={
+                    <Typography
+                      variant="body1"
+                      fontWeight="bold"
+                      textAlign="left"
+                    >
+                      Remember Me
+                    </Typography>
+                  }
+                />
+              </FormGroup>
+            </Grid>
+            <Grid item xs={6}>
+              <LoginButton
+                disabled={submitDisabled}
+                onSubmit={handleLogin}
+                username={enteredUsername}
+                password={enteredPassword}
+              >
+                {' '}
+                LOG IN{' '}
+              </LoginButton>
+            </Grid>
           </Grid>
-          <Grid item xs={6}>
-            <Typography variant="body1" fontWeight="bold" textAlign="left">
-              Password
-            </Typography>
-            <FormControl sx={{ boxShadow: 2, bgcolor: 'common.white', mt: 1 }}>
-              <OutlinedInput
-                value={enteredPassword}
-                onChange={(event) => setPassword(event.target.value)}
-              />
-            </FormControl>
-          </Grid>
-          <Grid item xs={6}>
-            <FormGroup>
-              <FormControlLabel
-                control={<Checkbox />}
-                label={
-                  <Typography
-                    variant="body1"
-                    fontWeight="bold"
-                    textAlign="left"
-                  >
-                    Remember Me
-                  </Typography>
-                }
-              />
-            </FormGroup>
-          </Grid>
-          <Grid item xs={6}>
-            <LoginButton
-              disabled={submitDisabled}
-              onClick={userHandler}
-              username={enteredUsername}
-              password={enteredPassword}
-            >
-              {' '}
-              LOG IN{' '}
-            </LoginButton>
-          </Grid>
-        </Grid>
+        </form>
       </Box>
     </Container>
   );

@@ -10,7 +10,7 @@ function loginButton(props) {
   };
 
   return (
-    <button type="submit" className="button" onClick={submitHandler} >
+    <button type="submit" className="button">
       Login
     </button>
   );
