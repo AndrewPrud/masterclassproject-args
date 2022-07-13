@@ -38,6 +38,10 @@ function LoginForm(props) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const user = {
+    username: enteredUsername,
+    password: enteredPassword,
+  };
 
   const theme = createTheme({
     palette: {
@@ -49,6 +53,20 @@ function LoginForm(props) {
       },
     },
   });
+
+  const validUsers = [
+    {
+      enteredUsername: 'asi',
+      enteredPassword: 'pass',
+    },
+    {
+      enteredUsername: 'bsi',
+      enteredPassword: 'password',
+    },
+  ];
+
+  const validUsernames = validUsers.map((a) => a.enteredUsername);
+  const validPasswords = validUsers.map((a) => a.enteredPassword);
   const handleLogin = (event) => {
     event.preventDefault();
 
@@ -62,12 +80,21 @@ function LoginForm(props) {
     if (enteredPassword === '') {
       setPasswordError(true);
     }
+    if (
+      validUsernames.includes(enteredUsername) === false ||
+      validPasswords.includes(enteredPassword) === false
+    ) {
+      setUsernameError(true);
+      setPasswordError(true);
+    }
 
-    if (enteredUsername && enteredPassword) {
-      const user = {
-        username: enteredUsername,
-        password: enteredPassword,
-      };
+    if (
+      validUsernames.includes(enteredUsername) === true &&
+      validPasswords.includes(enteredPassword) === true
+    ) {
+      user.username = enteredUsername;
+      user.password = enteredPassword;
+
       console.log(user);
       setUsername('');
       setPassword('');
