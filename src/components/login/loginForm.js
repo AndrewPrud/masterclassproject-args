@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 import {
   Button,
+  FormControl,
   Container,
-  FormGroup,
-  FormControlLabel,
-  Checkbox,
   Grid,
   Typography,
   Box,
-  FormControl,
   OutlinedInput,
   createTheme,
   Modal,
@@ -16,6 +13,7 @@ import {
   Backdrop,
 } from '@mui/material';
 import LoginButton from './loginButton';
+import RemmemberMe from './remmemberMe';
 
 const style = {
   position: 'absolute',
@@ -42,6 +40,7 @@ function LoginForm(props) {
   const handleClose = () => setOpen(false);
   const userHandleOpen = () => setUserOpen(true);
   const userHandleClose = () => setUserOpen(false);
+
   const user = {
     username: enteredUsername,
     password: enteredPassword,
@@ -225,20 +224,7 @@ function LoginForm(props) {
               </FormControl>
             </Grid>
             <Grid item xs={6}>
-              <FormGroup>
-                <FormControlLabel
-                  control={<Checkbox />}
-                  label={
-                    <Typography
-                      variant="body1"
-                      fontWeight="bold"
-                      textAlign="left"
-                    >
-                      Remember Me
-                    </Typography>
-                  }
-                />
-              </FormGroup>
+              <RemmemberMe />
             </Grid>
             <Grid item xs={6}>
               <LoginButton
