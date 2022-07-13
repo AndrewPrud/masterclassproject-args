@@ -16,6 +16,7 @@ import {
   Backdrop,
 } from '@mui/material';
 import LoginButton from './loginButton';
+import ForgotPassword from './ForgotPassword';
 
 const style = {
   position: 'absolute',
@@ -128,7 +129,7 @@ function LoginForm(props) {
       <Box
         sx={{
           width: 270,
-          height: 370,
+          height: 390,
           textAlign: 'center',
           backgroundColor: '#f5f5f5',
           alignItems: 'center',
@@ -252,6 +253,9 @@ function LoginForm(props) {
               </LoginButton>
             </Grid>
           </Grid>
+          <Grid item xs={6} paddingTop={1}>
+          <ForgotPassword />
+        </Grid>
         </form>
       </Box>
     </Container>
