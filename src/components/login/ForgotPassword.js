@@ -7,6 +7,8 @@ import {
   FormControl,
   OutlinedInput,
   Modal,
+  Fade,
+  Backdrop,
 } from '@mui/material';
 
 const style = {
@@ -21,19 +23,48 @@ const style = {
   p: 4,
 };
 
+const stylee = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 300,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
+
 function ForgotPassword() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [enteredEmail, setEmail] = useState('');
+  // second modal for error
+  const [openn, setOpenn] = useState(false);
+  const handleOpenn = () => setOpen(true);
+  const handleClosee = () => setOpen(false);
+
   const emailHandler = (event) => {
+    const validRegex =
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     event.preventDefault();
-    console.log(enteredEmail);
-    handleClose();
+
+    if (enteredEmail === '') {
+      handleOpenn();
+    } else {
+      console.log(enteredEmail);
+    }
+
+    // if (enteredEmail.value.match(validRegex)) {
+    //   console.log('Correct stuff');
+    // } else {
+    //   handleOpenn();
+    // }
   };
 
   return (
-    <div>
+    <>
       <Button onClick={handleOpen}>Forgot Password?</Button>
       <Modal
         open={open}
@@ -63,7 +94,29 @@ function ForgotPassword() {
           </Grid>
         </Box>
       </Modal>
-    </div>
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        open={openn}
+        onClose={handleClosee}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={openn}>
+          <Box sx={stylee}>
+            <Typography id="transition-modal-title" variant="h6" component="h2">
+              😂😂😂😂😂
+            </Typography>
+            <Typography id="transition-modal-description" sx={{ mt: 2 }}>
+              --
+            </Typography>
+          </Box>
+        </Fade>
+      </Modal>
+    </>
   );
 }
 
