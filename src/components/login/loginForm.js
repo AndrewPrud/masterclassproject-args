@@ -34,10 +34,14 @@ function LoginForm(props) {
   const [enteredPassword, setPassword] = useState('');
   const [usernameError, setUsernameError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
+  const [userError, setUserError] = useState(false);
 
   const [open, setOpen] = useState(false);
+  const [userOpen, setUserOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const userHandleOpen = () => setUserOpen(true);
+  const userHandleClose = () => setUserOpen(false);
   const user = {
     username: enteredUsername,
     password: enteredPassword,
@@ -73,19 +77,21 @@ function LoginForm(props) {
     setUsernameError(false);
     setPasswordError(false);
 
-    if (enteredUsername === '') {
-      setUsernameError(true);
-    }
-
-    if (enteredPassword === '') {
-      setPasswordError(true);
+    if (
+      (validUsernames.includes(enteredUsername) === false ||
+        validPasswords.includes(enteredPassword) === false) &&
+      enteredPassword !== '' &&
+      enteredUsername !== ''
+    ) {
+      userHandleOpen();
     }
     if (
-      validUsernames.includes(enteredUsername) === false ||
-      validPasswords.includes(enteredPassword) === false
+      ((validUsernames.includes(enteredUsername) === false ||
+        validPasswords.includes(enteredPassword) === false) &&
+        enteredPassword === '') ||
+      enteredUsername === ''
     ) {
-      setUsernameError(true);
-      setPasswordError(true);
+      handleOpen();
     }
 
     if (
@@ -98,8 +104,6 @@ function LoginForm(props) {
       console.log(user);
       setUsername('');
       setPassword('');
-    } else {
-      handleOpen();
     }
   };
 
@@ -157,6 +161,32 @@ function LoginForm(props) {
                 </Typography>
                 <Typography id="transition-modal-description" sx={{ mt: 2 }}>
                   All Input Are Not Filled.
+                </Typography>
+              </Box>
+            </Fade>
+          </Modal>
+          <Modal
+            aria-labelledby="transition-modal-title"
+            aria-describedby="transition-modal-description"
+            open={userOpen}
+            onClose={userHandleClose}
+            closeAfterTransition
+            BackdropComponent={Backdrop}
+            BackdropProps={{
+              timeout: 500,
+            }}
+          >
+            <Fade in={userOpen}>
+              <Box sx={style}>
+                <Typography
+                  id="transition-modal-title"
+                  variant="h6"
+                  component="h2"
+                >
+                  Bruh...😂
+                </Typography>
+                <Typography id="transition-modal-description" sx={{ mt: 2 }}>
+                  Invalid Username or Password
                 </Typography>
               </Box>
             </Fade>
