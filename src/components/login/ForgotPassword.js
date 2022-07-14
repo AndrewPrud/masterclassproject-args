@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import {
   Button,
   Grid,
@@ -9,6 +9,7 @@ import {
   Modal,
   Fade,
   Backdrop,
+  TextField,
 } from '@mui/material';
 
 const style = {
@@ -35,32 +36,56 @@ const stylee = {
   p: 4,
 };
 
+// function ChildModal() {
+//   const [open, setOpen] = React.useState(false);
+//   const handleOpen = () => {
+//     setOpen(true);
+//   };
+//   const handleClose = () => {
+//     setOpen(false);
+//   };
+
+//   return (
+//     <fragment>
+//       <Button onClick={handleOpen}>Open Error Modal By Your Self</Button>
+//       <Modal
+//         hideBackdrop
+//         open={open}
+//         onClose={handleClose}
+//         aria-labelledby="child-modal-title"
+//         aria-describedby="child-modal-description"
+//       >
+//         <Box sx={{ ...style, width: 200 }}>
+//           <h2 id="child-modal-title">😂😂Imagine😂😂</h2>
+//           <p id="child-modal-description">Invaild Email address</p>
+//           <Button onClick={handleClose}>Close Child Modal</Button>
+//         </Box>
+//       </Modal>
+//     </fragment>
+//   );
+// }
+
 function ForgotPassword() {
+  const [isError, setIsError] = useState(true);
+
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [enteredEmail, setEmail] = useState('');
-  // second modal for error
-  const [openn, setOpenn] = useState(false);
-  const handleOpenn = () => setOpen(true);
-  const handleClosee = () => setOpen(false);
 
   const emailHandler = (event) => {
-    const validRegex =
-      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    // const validRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.(com|edu|org)$/i; old /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
     event.preventDefault();
 
-    if (enteredEmail === '') {
-      handleOpenn();
-    } else {
+    const re =
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if (re.test(enteredEmail)) {
       console.log(enteredEmail);
+      setIsError(true);
+    } else {
+      setIsError(false);
+      // alert('😂😂Imagine😂😂' + '\n \n' + 'Invaild Email address');
     }
-
-    // if (enteredEmail.value.match(validRegex)) {
-    //   console.log('Correct stuff');
-    // } else {
-    //   handleOpenn();
-    // }
   };
 
   return (
@@ -83,38 +108,29 @@ function ForgotPassword() {
             <FormControl
               sx={{ boxShadow: 2, bgcolor: 'common.white', mt: 1, mb: 2 }}
             >
-              <OutlinedInput
-                value={enteredEmail}
-                onChange={(event) => setEmail(event.target.value)}
-              />
+              {isError ? (
+                <OutlinedInput
+                  value={enteredEmail}
+                  onChange={(event) => setEmail(event.target.value)}
+                />
+              ) : (
+                <TextField
+                  error
+                  id="outlined-error-helper-text"
+                  label="Error"
+                  defaultValue="Hello World"
+                  helperText="Invaild Email address."
+                  value={enteredEmail}
+                  onChange={(event) => setEmail(event.target.value)}
+                />
+              )}
             </FormControl>
           </Grid>
           <Grid item xs={6}>
             <Button onClick={emailHandler}>Send email</Button>
           </Grid>
+          {/* <ChildModal /> */}
         </Box>
-      </Modal>
-      <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        open={openn}
-        onClose={handleClosee}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={openn}>
-          <Box sx={stylee}>
-            <Typography id="transition-modal-title" variant="h6" component="h2">
-              😂😂😂😂😂
-            </Typography>
-            <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-              --
-            </Typography>
-          </Box>
-        </Fade>
       </Modal>
     </>
   );
