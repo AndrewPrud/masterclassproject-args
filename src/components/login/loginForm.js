@@ -154,7 +154,7 @@ function LoginForm(props) {
                   variant="h6"
                   component="h2"
                 >
-                  Bruh...😂
+                  Error!
                 </Typography>
                 <Typography id="transition-modal-description" sx={{ mt: 2 }}>
                   All Input Are Not Filled.
@@ -180,7 +180,7 @@ function LoginForm(props) {
                   variant="h6"
                   component="h2"
                 >
-                  Bruh...😂
+                  Error!
                 </Typography>
                 <Typography id="transition-modal-description" sx={{ mt: 2 }}>
                   Invalid Username or Password
@@ -233,9 +233,9 @@ function LoginForm(props) {
                 />
               </FormControl>
             </Grid>
-            <Grid item xs={6}>
+            {/* <Grid item xs={6}>
               <RemmemberMe />
-            </Grid>
+            </Grid> */}
             <Grid item xs={6}>
               <LoginButton
                 disabled={submitDisabled}

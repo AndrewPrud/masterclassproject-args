@@ -82,11 +82,7 @@ export default function ErrorModelTest(props) {
             error={passwordError}
           />
 
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-          >
+          <Button type="submit" variant="contained" color="primary">
             Submit
           </Button>
         </Stack>
