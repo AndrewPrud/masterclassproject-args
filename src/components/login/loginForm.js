@@ -223,6 +223,7 @@ function LoginForm(props) {
                   boxShadow: 2,
                   bgcolor: 'common.white',
                   mt: 1,
+                  mb: 2,
                   width: 300,
                 }}
               >
