@@ -16,7 +16,6 @@ import LoginButton from './loginButton';
 import RemmemberMe from './remmemberMe';
 import ForgotPassword from './ForgotPassword';
 
-
 const style = {
   position: 'absolute',
   top: '50%',
@@ -125,12 +124,12 @@ function LoginForm(props) {
       </Box>
       <Box
         sx={{
-          width: 270,
+          width: 370,
           height: 390,
           textAlign: 'center',
           backgroundColor: '#f5f5f5',
           alignItems: 'center',
-          ml: '38%',
+          ml: '34%',
           mb: '24%',
           borderRadius: 2,
           boxShadow: 3,
@@ -238,8 +237,8 @@ function LoginForm(props) {
             </Grid>
           </Grid>
           <Grid item xs={6} paddingTop={1}>
-          <ForgotPassword />
-        </Grid>
+            <ForgotPassword />
+          </Grid>
         </form>
       </Box>
     </Container>
