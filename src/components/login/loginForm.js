@@ -200,7 +200,13 @@ function LoginForm(props) {
                 Username
               </Typography>
               <FormControl
-                sx={{ boxShadow: 2, bgcolor: 'common.white', mt: 1, mb: 2 }}
+                sx={{
+                  boxShadow: 2,
+                  bgcolor: 'common.white',
+                  mt: 1,
+                  mb: 2,
+                  width: 300,
+                }}
               >
                 <OutlinedInput
                   value={enteredUsername}
@@ -213,7 +219,12 @@ function LoginForm(props) {
                 Password
               </Typography>
               <FormControl
-                sx={{ boxShadow: 2, bgcolor: 'common.white', mt: 1 }}
+                sx={{
+                  boxShadow: 2,
+                  bgcolor: 'common.white',
+                  mt: 1,
+                  width: 300,
+                }}
               >
                 <OutlinedInput
                   value={enteredPassword}
